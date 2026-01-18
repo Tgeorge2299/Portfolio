@@ -105,4 +105,7 @@ footer {
   color: var(--muted-text);
   border-top: 1px solid #1e293b;
 }
-
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: bold;
+}
