@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homelab | Tech by Tyler</title>
+  <title>Projects | Tech by Tyler</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,8 +13,8 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a class="active" href="homelab.html">Homelab</a></li>
+      <li><a class="active" href="projects.html">Projects</a></li>
+      <li><a href="homelab.html">Homelab</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -23,10 +23,17 @@
 <main class="container">
 
   <section class="card">
-    <h2>Homelab Overview</h2>
+    <h2>Media Server Stack</h2>
     <p>
-      Proxmox-based virtualized environment with Docker, ZFS, monitoring,
-      and secure remote access.
+      Plex, Radarr, Sonarr, Prowlarr, Overseerr running in containers
+      with shared ZFS storage.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Cloudflare Tunnel + Nginx Proxy Manager</h2>
+    <p>
+      Secure remote access without port forwarding using Cloudflare Zero Trust.
     </p>
   </section>
 
