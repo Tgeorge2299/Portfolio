@@ -129,3 +129,13 @@ footer {
   padding: 1.5rem;
   margin-top: 3rem;
 }
+/* ===============================
+   CARD / BOX STYLING
+================================ */
+.box {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
