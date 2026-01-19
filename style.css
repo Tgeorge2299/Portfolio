@@ -1,53 +1,48 @@
-/* ===============================
-   RESET & BASE
-================================ */
+/* Basic reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Colors */
+:root {
+  --bg-color: #0f172a;
+  --card-color: #1e293b;
+  --text-color: #e5e7eb;
+  --muted-text: #94a3b8;
+  --accent: #38bdf8;
+}
+
+/* Body */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
-/* ===============================
-   LINKS
-================================ */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ===============================
-   LAYOUT
-================================ */
+/* Layout helper */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
-/* ===============================
-   HEADER / NAV
-================================ */
+/* Header */
 header {
-  background: #0a2540;
+  border-bottom: 1px solid #1e293b;
 }
 
+.logo {
+  font-size: 1.5rem;
+}
+
+/* Navigation */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo {
-  color: #ffffff;
-  font-size: 1.4rem;
-  font-weight: bold;
 }
 
 .nav-links {
@@ -57,85 +52,66 @@ nav {
 }
 
 .nav-links a {
-  color: #ffffff;
-  font-weight: 500;
+  color: var(--muted-text);
+  text-decoration: none;
 }
 
-.nav-links a:hover,
-.nav-links .active {
-  text-decoration: underline;
+.nav-links a:hover {
+  color: var(--accent);
 }
 
-/* ===============================
-   HERO
-================================ */
+/* Hero section */
 .hero {
-  padding: 4rem 1.5rem;
-  text-align: center;
-  background: #ffffff;
+  padding: 4rem 0;
 }
 
 .hero h2 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #0a2540;
 }
 
 .hero p {
-  max-width: 600px;
-  margin: auto;
-  font-size: 1.1rem;
-  color: #555;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  color: var(--muted-text);
 }
 
-/* ===============================
-   BUTTON
-================================ */
-.btn {
+/* Button */
+.button {
   display: inline-block;
-  margin-top: 2rem;
-  padding: 0.75rem 1.75rem;
-  background-color: #2563eb;
-  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 6px;
   font-weight: bold;
-  border-radius: 4px;
 }
 
-.btn:hover {
-  background-color: #1e40af;
+/* Cards */
+.card {
+  background-color: var(--card-color);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
-/* ===============================
-   PAGE SECTIONS
-================================ */
-.section {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-}
-
-.section h2 {
-  color: #0a2540;
+.card h3 {
   margin-bottom: 1rem;
 }
 
-/* ===============================
-   FOOTER
-================================ */
-footer {
-  background: #0a2540;
-  color: #ffffff;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
+.card ul {
+  margin-left: 1.2rem;
 }
-/* ===============================
-   CARD / BOX STYLING
-================================ */
-.box {
-  background: #ffffff;
-  border-radius: 6px;
+
+.card li {
+  margin-bottom: 0.5rem;
+  color: var(--muted-text);
+}
+
+/* Footer */
+footer {
+  text-align: center;
   padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: var(--muted-text);
+  border-top: 1px solid #1e293b;
 }
