@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Tech by Tyler</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
@@ -13,7 +15,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a class="active" href="projects.html">Projects</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
       <li><a href="homelab.html">Homelab</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -21,22 +23,29 @@
 </header>
 
 <main class="container">
-
   <section class="card">
     <h2>Media Server Stack</h2>
     <p>
       Plex, Radarr, Sonarr, Prowlarr, Overseerr running in containers
-      with shared ZFS storage.
+      with shared ZFS storage for reliable and organized media.
     </p>
   </section>
 
   <section class="card">
     <h2>Cloudflare Tunnel + Nginx Proxy Manager</h2>
     <p>
-      Secure remote access without port forwarding using Cloudflare Zero Trust.
+      Secure remote access to all services without port forwarding,
+      using Cloudflare Zero Trust and Nginx Proxy Manager.
     </p>
   </section>
 
+  <section class="card">
+    <h2>Automation Projects</h2>
+    <p>
+      Scripts and small apps to automate workflows, backups,
+      notifications, and system monitoring in my homelab.
+    </p>
+  </section>
 </main>
 
 <footer>
