@@ -1,6 +1,6 @@
-/* =========================
-   GLOBAL RESET
-========================= */
+/* ===============================
+   RESET & BASE
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -8,31 +8,34 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-  background: #0b1220;
-  color: #e6f1ff;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
   line-height: 1.6;
 }
 
-/* =========================
-   LINK NORMALIZATION
-========================= */
+/* ===============================
+   LINKS
+================================ */
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-/* =========================
+/* ===============================
    LAYOUT
-========================= */
+================================ */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 1.5rem;
 }
 
+/* ===============================
+   HEADER / NAV
+================================ */
 header {
-  border-bottom: 1px solid #1e2a45;
+  background: #0a2540;
 }
 
 nav {
@@ -41,88 +44,88 @@ nav {
   align-items: center;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
 .logo {
+  color: #ffffff;
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  color: #ccd6f6;
+  color: #ffffff;
   font-weight: 500;
 }
 
 .nav-links a:hover,
 .nav-links .active {
-  color: #5fa9ff;
+  text-decoration: underline;
 }
 
-/* =========================
+/* ===============================
    HERO
-========================= */
+================================ */
 .hero {
-  padding: 5rem 1.5rem;
+  padding: 4rem 1.5rem;
   text-align: center;
+  background: #ffffff;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
+  color: #0a2540;
 }
 
 .hero p {
   max-width: 600px;
   margin: auto;
-  color: #a8b2d1;
+  font-size: 1.1rem;
+  color: #555;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* ===============================
+   BUTTON
+================================ */
 .btn {
   display: inline-block;
   margin-top: 2rem;
   padding: 0.75rem 1.75rem;
-  background: #5fa9ff;
-  color: #0b1220;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.2s ease, transform 0.2s ease;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
 .btn:hover {
-  background: #3b82f6;
-  transform: translateY(-2px);
+  background-color: #1e40af;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ===============================
+   PAGE SECTIONS
+================================ */
 .section {
-  padding: 4rem 1.5rem;
   max-width: 900px;
-  margin: auto;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
 }
 
 .section h2 {
+  color: #0a2540;
   margin-bottom: 1rem;
 }
 
-/* =========================
+/* ===============================
    FOOTER
-========================= */
+================================ */
 footer {
-  border-top: 1px solid #1e2a45;
+  background: #0a2540;
+  color: #ffffff;
   text-align: center;
   padding: 1.5rem;
-  color: #8892b0;
-  font-size: 0.9rem;
+  margin-top: 3rem;
 }
