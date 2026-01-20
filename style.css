@@ -162,7 +162,9 @@ footer {
   box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* Skills Section Grid - Fixed */
+/* ==============================
+   Skills Section Grid - White Text
+================================= */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -171,7 +173,6 @@ footer {
   margin-top: 1rem;
 }
 
-/* Individual Skill Card */
 .skill {
   display: flex;
   flex-direction: column;
@@ -179,28 +180,26 @@ footer {
   background-color: #1b1f2a; /* dark card background */
   padding: 0.8rem;
   border-radius: 12px;
-  width: 100px; /* slightly smaller to fit images nicely */
+  width: 100px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Skill Images */
 .skill img {
-  max-width: 50px;    /* maximum width */
-  max-height: 50px;   /* maximum height */
-  width: auto;        /* preserve aspect ratio */
-  height: auto;       /* preserve aspect ratio */
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
   object-fit: contain;
   margin-bottom: 0.5rem;
 }
 
-/* Skill Label */
 .skill span {
   text-align: center;
   font-size: 0.85rem;
-  color: #7fff00; /* neon green */
+  color: #ffffff !important; /* force white text */
 }
 
-/* Hover effect for skill cards */
+/* Hover effect with green glow (text stays white) */
 .skill:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 28px rgba(0, 255, 0, 0.35);
@@ -209,9 +208,8 @@ footer {
 /* Responsive adjustment for larger screens */
 @media (min-width: 768px) {
   .skill {
-    width: 120px; /* original width on bigger screens */
+    width: 120px;
   }
-
   .skill img {
     max-width: 60px;
     max-height: 60px;
