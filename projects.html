@@ -24,14 +24,16 @@
 
 <main class="container">
   <section class="card project-card">
-    <img src="assets/plex.png" alt="Media Server" class="project-img">
-    <img src="assets/proxmox.png" alt="Proxmox" class="project-img">
-    <h2>Media Server Stack</h2>
-    <p>
-      Plex, Radarr, Sonarr, Prowlarr, and Overseerr running in Docker containers
-      with shared ZFS storage for reliable and organized media.
-    </p>
-  </section>
+  <img src="assets/proxmox.png" alt="Proxmox" class="project-img">
+  <img src="assets/plex.png" alt="Plex" class="project-img">
+  <h2>Media Server Stack</h2>
+  <p>
+    Plex, Radarr, Sonarr, Prowlarr, and Overseerr each run in their own
+    LXC container on Proxmox, using shared ZFS storage for organized and
+    reliable media management.
+  </p>
+</section>
+
 
   <section class="card project-card">
     <img src="assets/cloudflare.png" alt="Cloudflare Tunnel" class="project-img">
