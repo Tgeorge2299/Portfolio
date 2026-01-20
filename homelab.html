@@ -1,41 +1,160 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homelab | Tech by Tyler</title>
-  <link rel="icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<header>
-  <nav class="container">
-    <h1 class="logo">Tech by Tyler</h1>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="homelab.html" class="active">Homelab</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <nav class="container">
+      <h1 class="logo">Tech by Tyler</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="homelab.html" class="active">Homelab</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main class="container">
-  <section class="card hero">
-    <h2>My Homelab</h2>
-    <p>
-      I run a fully virtualized homelab using Proxmox with Docker containers,
-      ZFS storage, and multiple VMs. I use it to test services, practice IT skills,
-      and automate workflows, all in a secure environment.
-    </p>
-  </section>
-</main>
+  <main class="container">
 
-<footer>
-  <p>© 2026 Tyler George</p>
-</footer>
+    <!-- INTRO -->
+    <section class="card hero fade-up">
+      <h2>My Homelab</h2>
+      <p>
+        My homelab is a single-node Proxmox environment used for learning,
+        self-hosting, automation, and cybersecurity practice. It is designed
+        to closely resemble real-world infrastructure while remaining flexible
+        for experimentation.
+      </p>
+    </section>
+
+    <!-- CORE INFRASTRUCTURE -->
+    <section class="card fade-up">
+      <h2>Core Infrastructure</h2>
+      <ul>
+        <li><strong>Hypervisor:</strong> Proxmox VE (single-node)</li>
+        <li><strong>Primary Storage:</strong> ZFS pool <code>tank</code> (2 × 1TB HDDs)</li>
+        <li><strong>Local Storage:</strong> 512GB NVMe for VMs and fast I/O workloads</li>
+        <li><strong>Primary Firewall:</strong> pfSense appliance connected to Google Fiber</li>
+      </ul>
+      <p>
+        ZFS is used to provide data integrity, snapshots, and reliable shared
+        storage across containers and virtual machines.
+      </p>
+    </section>
+
+    <!-- LXC MEDIA STACK -->
+    <section class="card fade-up">
+      <h2>LXC Media Stack</h2>
+      <p>
+        Media services currently run in separate LXC containers for isolation,
+        efficiency, and ease of management. All containers share a common ZFS
+        mount managed by a dedicated Cockpit container.
+      </p>
+      <ul>
+        <li>Plex (media streaming)</li>
+        <li>qBittorrent (downloads)</li>
+        <li>Prowlarr (indexer management)</li>
+        <li>Radarr & Sonarr (media automation)</li>
+        <li>Overseerr (requests & discovery)</li>
+        <li>Cockpit (storage + mount management)</li>
+        <li>Homarr (homelab dashboard)</li>
+      </ul>
+      <p>
+        I plan to migrate this entire stack to Docker in the future once the
+        architecture is finalized.
+      </p>
+    </section>
+
+    <!-- VIRTUAL MACHINES -->
+    <section class="card fade-up">
+      <h2>Virtual Machines</h2>
+      <ul>
+        <li>Ubuntu Server (general-purpose workloads)</li>
+        <li>Debian Server (Docker host)</li>
+        <li>Kali Linux (security testing)</li>
+        <li>Metasploitable (vulnerability practice)</li>
+        <li>Windows Server 2025</li>
+        <li>Windows 10</li>
+        <li>macOS VM</li>
+        <li>Ubuntu Workstation</li>
+      </ul>
+    </section>
+
+    <!-- DOCKER & REMOTE ACCESS -->
+    <section class="card fade-up">
+      <h2>Docker & Remote Access</h2>
+      <p>
+        A dedicated Debian VM runs Docker to host infrastructure services and
+        web-facing tools.
+      </p>
+      <ul>
+        <li>Docker + Portainer</li>
+        <li>Nginx Proxy Manager</li>
+        <li>Cloudflare Tunnel (Zero Trust access)</li>
+      </ul>
+      <p>
+        Cloudflare Tunnel allows secure remote access to services without
+        exposing ports or relying on traditional port forwarding.
+      </p>
+    </section>
+
+    <!-- NETWORKING & SECURITY -->
+    <section class="card fade-up">
+      <h2>Networking & Security Practice</h2>
+      <p>
+        An OPNsense VM is deployed on a separate internal network to practice
+        VLAN configuration, firewall rules, and network segmentation without
+        impacting production services.
+      </p>
+      <ul>
+        <li>VLANs & subnet segmentation</li>
+        <li>Firewall policy testing</li>
+        <li>Isolated attack / defense labs</li>
+      </ul>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="card fade-up">
+      <h2>Why I Built It This Way</h2>
+      <p>
+        This homelab prioritizes learning through real-world design choices:
+        separation of concerns, infrastructure as services, secure access,
+        and iterative improvement. It serves as both a production environment
+        and a safe testing ground for new technologies.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Tyler George | All rights reserved</p>
+  </footer>
+
+  <!-- Scroll animation -->
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(fader => observer.observe(fader));
+  </script>
 
 </body>
 </html>
