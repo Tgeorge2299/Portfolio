@@ -1,42 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Tech by Tyler</title>
-  <link rel="icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<header>
-  <nav class="container">
-    <h1 class="logo">Tech by Tyler</h1>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="homelab.html">Homelab</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <nav class="container">
+      <h1 class="logo">Tech by Tyler</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="homelab.html">Homelab</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main class="container">
-  <section class="card hero">
-    <h2>About Me</h2>
-    <p>
-      I’m passionate about IT, cybersecurity, and building hands-on experience
-      in real-world infrastructure. I enjoy self-hosting, automating workflows,
-      and exploring new technologies in my homelab. I’m constantly learning
-      and experimenting to improve my skills and knowledge.
-    </p>
-  </section>
-</main>
+  <main class="container">
 
-<footer>
-  <p>© 2026 Tyler George</p>
-</footer>
+    <!-- INTRODUCTION -->
+    <section class="card hero fade-up">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m Tyler George. I’m passionate about IT, cybersecurity, and
+        building hands-on experience in real-world infrastructure. I enjoy
+        self-hosting, automating workflows, and exploring new technologies in my homelab.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE / SKILLS -->
+    <section class="card fade-up">
+      <h2>Experience & Skills</h2>
+      <ul>
+        <li>Building and managing homelabs with Proxmox, LXC, Docker, and ZFS</li>
+        <li>Securing networks and cloud environments</li>
+        <li>Automating workflows and deploying applications</li>
+        <li>Hands-on experience with Linux servers (Ubuntu, Debian, CentOS)</li>
+        <li>Version control and collaboration with Git / GitHub</li>
+        <li>Scripting and automation using Bash & Python</li>
+      </ul>
+    </section>
+
+    <!-- CERTIFICATIONS / LEARNING -->
+    <section class="card fade-up">
+      <h2>Certifications & Learning</h2>
+      <ul>
+        <li>CompTIA Security+ (In Progress / Optional)</li>
+        <li>Ongoing hands-on cybersecurity labs</li>
+        <li>Continuous learning of new IT tools and technologies</li>
+      </ul>
+    </section>
+
+    <!-- PERSONAL APPROACH / MOTIVATION -->
+    <section class="card fade-up">
+      <h2>My Approach</h2>
+      <p>
+        I enjoy experimenting with new tools and automating repetitive tasks
+        to make systems more efficient. I believe in learning by doing, which
+        is why my homelab is a sandbox for testing, deploying, and securing services.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Tyler George | All rights reserved</p>
+  </footer>
+
+  <!-- Scroll animation script -->
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(fader => observer.observe(fader));
+  </script>
 
 </body>
 </html>
