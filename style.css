@@ -146,7 +146,7 @@ nav {
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0,255,0,0.35);
+  box-shadow: 0 12px 28px rgb(242, 243, 242);
 }
 
 /* SKILLS GRID */
@@ -184,7 +184,7 @@ nav {
 
 .skill:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0,255,0,0.35);
+  box-shadow: 0 12px 28px rgb(242, 245, 242);
 }
 
 /* FOOTER */
