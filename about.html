@@ -48,41 +48,6 @@
       </ul>
     </section>
 
-    <!-- NEW: VISUAL SKILLS SECTION -->
-    <section class="card fade-up">
-      <h2>Tools & Technologies</h2>
-      <div class="skills-grid">
-        <div class="skill">
-          <img src="assets/linux.png" alt="Linux">
-          <span>Linux</span>
-        </div>
-        <div class="skill">
-          <img src="assets/proxmox.png" alt="Proxmox">
-          <span>Proxmox / LXC</span>
-        </div>
-        <div class="skill">
-          <img src="assets/docker.png" alt="Docker">
-          <span>Docker</span>
-        </div>
-        <div class="skill">
-          <img src="assets/cloudflare.png" alt="Cloudflare">
-          <span>Cloudflare</span>
-        </div>
-        <div class="skill">
-          <img src="assets/github.png" alt="GitHub">
-          <span>GitHub</span>
-        </div>
-        <div class="skill">
-          <img src="assets/python.png" alt="Python">
-          <span>Python</span>
-        </div>
-        <div class="skill">
-          <img src="assets/zfs.png" alt="ZFS">
-          <span>ZFS</span>
-        </div>
-      </div>
-    </section>
-
     <!-- CERTIFICATIONS / LEARNING -->
     <section class="card fade-up">
       <h2>Certifications & Learning</h2>
@@ -116,21 +81,3 @@
   <footer>
     <p>© 2026 Tyler George | All rights reserved</p>
   </footer>
-
-  <!-- Scroll animation script -->
-  <script>
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    faders.forEach(fader => observer.observe(fader));
-  </script>
-
-</body>
-</html>
