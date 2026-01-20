@@ -162,9 +162,7 @@ footer {
   box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* ==============================
-   Skills Section Grid - White Text + Animations
-============================== */
+/* Skills Section Grid */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -173,37 +171,59 @@ footer {
   margin-top: 1rem;
 }
 
+/* Individual skill card */
 .skill {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1b1f2a;
+  background-color: #1b1f2a; /* dark card background */
   padding: 0.8rem;
   border-radius: 12px;
   width: 100px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
 }
 
+/* Fade-in when in viewport */
+.skill.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skill images */
 .skill img {
-  max-width: 50px;
-  max-height: 50px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   margin-bottom: 0.5rem;
 }
 
+/* Skill text */
 .skill span {
-  color: #ffffff !important;
   text-align: center;
   font-size: 0.85rem;
+  color: #ffffff; /* white text */
 }
 
+/* Hover effect */
 .skill:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 255, 0, 0.35);
+  box-shadow: 0 12px 28px rgba(0, 255, 0, 0.35); /* green glow */
 }
 
+/* Responsive adjustment */
+@media (min-width: 768px) {
+  .skill {
+    width: 120px;
+  }
+  .skill img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+  
 /* ==============================
    Project Cards - Scroll Animations
 ============================== */
@@ -236,7 +256,7 @@ footer {
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgb(249, 252, 249);
+  box-shadow: 0 12px 28px rgb(230, 233, 230);
 }
 
 /* ==============================
