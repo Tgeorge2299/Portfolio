@@ -144,3 +144,21 @@ footer {
   padding: 2rem;
   margin-top: 3rem;
 }
+/* PROJECT CARD IMAGES */
+.project-card {
+  text-align: center;
+}
+
+.project-card .project-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* Hover effect for project cards */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
