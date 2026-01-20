@@ -162,7 +162,7 @@ footer {
   box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* ==============================
+/* ==================================
    Skills Section Grid - White Text
 ================================= */
 .skills-grid {
@@ -184,6 +184,7 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Skill Images */
 .skill img {
   max-width: 50px;
   max-height: 50px;
@@ -193,23 +194,25 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-.skill span {
+/* Force skill text to white, overriding any other rules */
+.card .skills-grid .skill span {
+  color: #ffffff !important;
   text-align: center;
   font-size: 0.85rem;
-  color: #ffffff !important; /* force white text */
 }
 
-/* Hover effect with green glow (text stays white) */
+/* Hover effect: glow green, text stays white */
 .skill:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 28px rgba(0, 255, 0, 0.35);
 }
 
-/* Responsive adjustment for larger screens */
+/* Responsive adjustments for larger screens */
 @media (min-width: 768px) {
   .skill {
     width: 120px;
   }
+
   .skill img {
     max-width: 60px;
     max-height: 60px;
