@@ -1,42 +1,31 @@
-/* ==================================
-   RESET
-================================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ==================================
-   BASE
-================================== */
+/* BASE */
 body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #0e1624; /* deep slate blue */
-  color: #d6dde8;      /* warm light text */
+  background: #0e1624;
+  color: #ffffff;
   line-height: 1.65;
 }
 
-/* ==================================
-   LINKS
-================================== */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* ==================================
-   LAYOUT
-================================== */
+/* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 2rem;
 }
 
-/* ==================================
-   HEADER / NAV
-================================== */
+/* HEADER / NAV */
 header {
   background: #121d2f;
   border-bottom: 1px solid #1e2a40;
@@ -70,15 +59,13 @@ nav {
   color: #93c5fd;
 }
 
-/* ==================================
-   CARDS
-================================== */
+/* CARDS */
 .card {
   background: #121d2f;
   padding: 2.25rem;
   border-radius: 14px;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 .card h2 {
@@ -90,9 +77,7 @@ nav {
   color: #cbd5e1;
 }
 
-/* ==================================
-   HERO
-================================== */
+/* HERO */
 .hero {
   text-align: center;
 }
@@ -106,9 +91,7 @@ nav {
   margin: 0.75rem auto 0;
 }
 
-/* ==================================
-   BUTTONS
-================================== */
+/* BUTTONS */
 .btn {
   display: inline-block;
   margin-top: 2rem;
@@ -117,134 +100,31 @@ nav {
   color: #0e1624;
   font-weight: 600;
   border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.35);
   transition: all 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 10px 28px rgba(59,130,246,0.5);
 }
 
-/* ==================================
-   SECTIONS
-================================== */
-.section h2 {
-  margin-bottom: 1rem;
-}
-
-/* ==================================
-   FOOTER
-================================== */
-footer {
-  background: #0e1624;
-  border-top: 1px solid #1e2a40;
-  color: #94a3b8;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
-}
-/* PROJECT CARD IMAGES */
-.project-card {
-  text-align: center;
-}
-
-.project-card .project-img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-
-/* Hover effect for project cards */
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-/* Skills Section Grid */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-/* Individual skill card */
-.skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1b1f2a; /* dark card background */
-  padding: 0.8rem;
-  border-radius: 12px;
-  width: 100px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
-}
-
-/* Fade-in when in viewport */
-.skill.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Skill images */
-.skill img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-/* Skill text */
-.skill span {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #ffffff; /* white text */
-}
-
-/* Hover effect */
-.skill:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgb(242, 245, 242); /* green glow */
-}
-
-/* Responsive adjustment */
-@media (min-width: 768px) {
-  .skill {
-    width: 120px;
-  }
-  .skill img {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-
-/* ==============================
-   Project Cards - Scroll Animations
-============================== */
+/* PROJECTS GRID */
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .project-card {
-  background-color: #121d2f;
+  background: #1b1f2a;
+  border-radius: 12px;
   padding: 1.5rem;
-  border-radius: 14px;
-  width: 250px;
+  width: 260px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
-  opacity: 0;
-  transform: translateY(20px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card img {
@@ -254,30 +134,77 @@ footer {
   margin-bottom: 1rem;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgb(230, 233, 230);
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
 }
 
-/* ==============================
-   Fade-up animation class
-============================== */
-.fade-up.visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+.project-card p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,255,0,0.35);
+}
+
+/* SKILLS GRID */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b1f2a;
+  padding: 0.8rem;
+  border-radius: 12px;
+  width: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill img {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.skill span {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,255,0,0.35);
+}
+
+/* FOOTER */
+footer {
+  background: #0e1624;
+  border-top: 1px solid #1e2a40;
+  color: #94a3b8;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+/* FADE-UP ANIMATION */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-  .skill {
-    width: 120px;
-  }
-  .skill img {
-    max-width: 60px;
-    max-height: 60px;
-  }
-  .project-card {
-    width: 300px;
-  }
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
