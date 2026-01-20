@@ -204,7 +204,7 @@ footer {
 /* Hover effect: glow green, text stays white */
 .skill:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 255, 0, 0.35);
+  box-shadow: 0 12px 28px rgb(239, 240, 239);
 }
 
 /* Responsive adjustments for larger screens */
