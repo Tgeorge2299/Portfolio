@@ -1,128 +1,163 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Tech by Tyler</title>
+
   <link rel="icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <nav class="container">
-    <h1 class="logo">Tech by Tyler</h1>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="homelab.html">Homelab</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <nav class="container">
+      <h1 class="logo">Tech by Tyler</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="homelab.html">Homelab</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main class="container">
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-  <!-- INTRO -->
-  <section class="card hero fade-up">
-    <h2>Projects</h2>
-    <p>
-      These projects showcase hands-on experience designing, deploying,
-      and securing real-world infrastructure in my homelab. Each project
-      focuses on solving practical problems using modern tools and
-      best practices.
-    </p>
-  </section>
+    <!-- INTRO -->
+    <section class="card hero fade-up">
+      <h2>Projects</h2>
+      <p>
+        These projects showcase hands-on experience designing, deploying,
+        and securing real-world infrastructure in my homelab. Each project
+        focuses on solving practical problems using modern tools and
+        best practices.
+      </p>
+    </section>
 
-  <!-- FEATURED PROJECTS -->
-  <section class="card">
-    <h2>Featured Projects</h2>
-
-    <div class="projects-grid">
-
-      <!-- PROJECT 1 -->
-      <div class="project-card fade-up">
-        <img src="assets/plex.png" alt="Media Server Stack" class="project-img">
-        <h3>Media Server Automation Platform</h3>
-        <p>
-          Designed and deployed a modular media platform using multiple
-          LXC containers on Proxmox with shared ZFS storage. Each service
-          runs independently for improved reliability, security, and
-          scalability.
-        </p>
-        <p>
-          <strong>Technologies:</strong> Proxmox VE, LXC, ZFS, Plex,
-          Radarr, Sonarr, Prowlarr, Overseerr, qBittorrent
-        </p>
-        <p>
-          <strong>Focus:</strong> Service isolation, storage permissions,
-          automation, migration planning (LXC → Docker)
-        </p>
-      </div>
-
-      <!-- PROJECT 2 -->
-      <div class="project-card fade-up">
-        <img src="assets/cloudflare.png" alt="Cloudflare Tunnel" class="project-img">
-        <h3>Secure Remote Access with Cloudflare Zero Trust</h3>
-        <p>
-          Implemented secure external access to internal services without
-          exposing ports to the public internet. Services are routed
-          through Cloudflare Tunnel and managed with Nginx Proxy Manager.
-        </p>
-        <p>
-          <strong>Technologies:</strong> Cloudflare Tunnel, Nginx Proxy
-          Manager, Docker, Portainer, DNS, SSL/TLS
-        </p>
-        <p>
-          <strong>Focus:</strong> Zero Trust networking, reverse proxying,
-          certificate management, attack surface reduction
-        </p>
-      </div>
-
-      <!-- PROJECT 3 -->
-      <div class="project-card fade-up">
-        <img src="assets/automation.png" alt="Automation Projects" class="project-img">
-        <h3>Infrastructure Automation & Monitoring</h3>
-        <p>
-          Developed scripts and workflows to automate routine homelab
-          tasks such as backups, service monitoring, and system
-          maintenance to improve reliability and efficiency.
-        </p>
-        <p>
-          <strong>Technologies:</strong> Bash, Python, Linux, cron,
-          Docker
-        </p>
-        <p>
-          <strong>Focus:</strong> Automation, monitoring, operational
-          efficiency, scripting
-        </p>
-      </div>
-
+    <!-- FILTER BUTTONS -->
+    <div class="project-filters fade-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="homelab">Homelab</button>
+      <button class="filter-btn" data-filter="media">Media</button>
+      <button class="filter-btn" data-filter="security">Security</button>
+      <button class="filter-btn" data-filter="networking">Networking</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
     </div>
-  </section>
 
-</main>
+    <!-- FEATURED PROJECTS -->
+    <section class="card fade-up">
+      <h2>Featured Projects</h2>
 
-<footer>
-  <p>© 2026 Tyler George | All rights reserved</p>
-</footer>
+      <div class="projects-grid">
 
-<!-- Scroll animation script -->
-<script>
-  const faders = document.querySelectorAll('.fade-up');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+        <!-- PROJECT 1 -->
+        <article class="project-card fade-up" data-category="homelab media">
+          <img src="assets/plex.png" alt="Media Server Stack" class="project-img">
+          <h3>Media Server Automation Platform</h3>
+          <p>
+            Designed and deployed a modular media platform using multiple
+            LXC containers on Proxmox with shared ZFS storage. Each service
+            runs independently for improved reliability, security, and
+            scalability.
+          </p>
+          <p>
+            <strong>Technologies:</strong> Proxmox VE, LXC, ZFS, Plex,
+            Radarr, Sonarr, Prowlarr, Overseerr, qBittorrent
+          </p>
+          <p>
+            <strong>Focus:</strong> Service isolation, storage permissions,
+            automation, migration planning (LXC → Docker)
+          </p>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project-card fade-up" data-category="security networking">
+          <img src="assets/cloudflare.png" alt="Cloudflare Tunnel" class="project-img">
+          <h3>Secure Remote Access with Cloudflare Zero Trust</h3>
+          <p>
+            Implemented secure external access to internal services without
+            exposing ports to the public internet. All traffic is routed
+            through Cloudflare Tunnel and managed with Nginx Proxy Manager.
+          </p>
+          <p>
+            <strong>Technologies:</strong> Cloudflare Tunnel, Nginx Proxy
+            Manager, Docker, Portainer, DNS, SSL/TLS
+          </p>
+          <p>
+            <strong>Focus:</strong> Zero Trust networking, reverse proxying,
+            certificate management, attack surface reduction
+          </p>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="project-card fade-up" data-category="automation scripting">
+          <img src="assets/automation.png" alt="Automation Projects" class="project-img">
+          <h3>Infrastructure Automation & Monitoring</h3>
+          <p>
+            Developed scripts and workflows to automate routine homelab
+            tasks such as backups, service monitoring, and system
+            maintenance to improve reliability and efficiency.
+          </p>
+          <p>
+            <strong>Technologies:</strong> Bash, Python, Linux, cron,
+            Docker
+          </p>
+          <p>
+            <strong>Focus:</strong> Automation, monitoring, operational
+            efficiency, scripting
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Tyler George | All rights reserved</p>
+  </footer>
+
+  <!-- FILTER + SCROLL ANIMATION SCRIPT -->
+  <script>
+    /* Filtering logic */
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(card => {
+          const categories = card.dataset.category.split(" ");
+          card.style.display =
+            filter === "all" || categories.includes(filter)
+              ? "block"
+              : "none";
+        });
+      });
     });
-  }, { threshold: 0.1 });
 
-  faders.forEach(fader => observer.observe(fader));
-</script>
+    /* Scroll animation */
+    const faders = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    faders.forEach(fader => observer.observe(fader));
+  </script>
 
 </body>
 </html>

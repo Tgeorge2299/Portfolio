@@ -208,3 +208,23 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+.project-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.filter-btn.active {
+  background: var(--accent-color);
+  color: #fff;
+}
