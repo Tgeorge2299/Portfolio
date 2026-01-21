@@ -19,6 +19,11 @@
         <li><a href="projects.html">Projects</a></li>
         <li><a href="homelab.html">Homelab</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="assets/TylerGeorge_Resume.pdf" class="resume-btn" download>
+            Resume
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -32,7 +37,14 @@
         in real-world infrastructure. I enjoy self-hosting, automating workflows,
         and exploring new technologies in my homelab.
       </p>
-      <a href="projects.html" class="btn fade-up">View My Projects</a>
+
+      <!-- HERO ACTION BUTTONS -->
+      <div class="hero-actions fade-up">
+        <a href="projects.html" class="btn">View My Projects</a>
+        <a href="assets/TylerGeorge_Resume.pdf" class="btn btn-outline" download>
+          Download Resume
+        </a>
+      </div>
     </section>
 
     <!-- QUICK HIGHLIGHTS SECTION -->
@@ -50,31 +62,37 @@
     <section class="card">
       <h2>Skills & Tools</h2>
       <div class="skills-grid">
+
         <div class="skill fade-up">
           <img src="assets/linux.png" alt="Linux Logo">
           <span>Linux</span>
         </div>
+
         <div class="skill fade-up">
           <img src="assets/proxmox.png" alt="Proxmox Logo">
           <span>Proxmox / LXC</span>
         </div>
+
         <div class="skill fade-up">
           <img src="assets/cloudflare.png" alt="Cloudflare Logo">
           <span>Cloudflare / Networking</span>
         </div>
+
         <div class="skill fade-up">
           <img src="assets/github.png" alt="GitHub Logo">
           <span>Git / GitHub</span>
         </div>
+
         <div class="skill fade-up">
           <img src="assets/python.png" alt="Python Logo">
           <span>Automation / Python</span>
         </div>
-          <div class ="skill fade-up">
-            <img src="assets/docker.png" alt="Docker Logo">
-            <span>Docker / Containers</span>
-          </div>
+
+        <div class="skill fade-up">
+          <img src="assets/docker.png" alt="Docker Logo">
+          <span>Docker / Containers</span>
         </div>
+
       </div>
     </section>
   </main>
@@ -87,9 +105,10 @@
   <!-- Scroll animation script -->
   <script>
     const faders = document.querySelectorAll('.fade-up');
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
