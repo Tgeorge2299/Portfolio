@@ -95,7 +95,8 @@ nav {
 /* HERO BUTTONS CENTERED */
 .hero-actions {
   display: flex;
-  justify-content: center;
+  justify-content: center;  /* CENTER buttons horizontally */
+  align-items: center;      /* CENTER vertically if wrapping */
   gap: 1rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
@@ -111,6 +112,7 @@ nav {
   border-radius: 999px;
   box-shadow: 0 6px 18px rgba(59,130,246,0.35);
   transition: all 0.25s ease;
+  text-align: center;
 }
 
 .btn:hover {
@@ -258,3 +260,4 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
+
