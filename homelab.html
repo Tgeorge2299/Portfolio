@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +29,10 @@
     <section class="card hero fade-up">
       <h2>My Homelab</h2>
       <p>
-        My homelab is a single-node Proxmox environment used for learning,
-        self-hosting, automation, and cybersecurity practice. It is designed
-        to closely resemble real-world infrastructure while remaining flexible
-        for experimentation.
+        My homelab is a single-node Proxmox environment designed to build
+        hands-on experience with enterprise-style infrastructure, automation,
+        and cybersecurity concepts. It serves as both a production environment
+        and a controlled lab for experimentation.
       </p>
     </section>
 
@@ -41,14 +40,14 @@
     <section class="card fade-up">
       <h2>Core Infrastructure</h2>
       <ul>
-        <li><strong>Hypervisor:</strong> Proxmox VE (single-node)</li>
+        <li><strong>Hypervisor:</strong> Proxmox VE (single node)</li>
         <li><strong>Primary Storage:</strong> ZFS pool <code>tank</code> (2 × 1TB HDDs)</li>
-        <li><strong>Local Storage:</strong> 512GB NVMe for VMs and fast I/O workloads</li>
-        <li><strong>Primary Firewall:</strong> pfSense appliance connected to Google Fiber</li>
+        <li><strong>Local Storage:</strong> 512GB NVMe for VMs and high-I/O workloads</li>
+        <li><strong>Edge Firewall:</strong> Dedicated pfSense appliance connected to Google Fiber</li>
       </ul>
       <p>
-        ZFS is used to provide data integrity, snapshots, and reliable shared
-        storage across containers and virtual machines.
+        ZFS provides data integrity, snapshots, and shared storage across LXCs
+        and virtual machines while maintaining reliability and flexibility.
       </p>
     </section>
 
@@ -56,22 +55,22 @@
     <section class="card fade-up">
       <h2>LXC Media Stack</h2>
       <p>
-        Media services currently run in separate LXC containers for isolation,
-        efficiency, and ease of management. All containers share a common ZFS
-        mount managed by a dedicated Cockpit container.
+        Media services are deployed in isolated LXC containers for efficiency,
+        performance, and simplified management. A dedicated Cockpit container
+        manages shared ZFS mounts used across the stack.
       </p>
       <ul>
-        <li>Plex (media streaming)</li>
-        <li>qBittorrent (downloads)</li>
-        <li>Prowlarr (indexer management)</li>
-        <li>Radarr & Sonarr (media automation)</li>
-        <li>Overseerr (requests & discovery)</li>
-        <li>Cockpit (storage + mount management)</li>
-        <li>Homarr (homelab dashboard)</li>
+        <li>Plex – media streaming</li>
+        <li>qBittorrent – downloads</li>
+        <li>Prowlarr – indexer management</li>
+        <li>Radarr & Sonarr – media automation</li>
+        <li>Overseerr – media requests & discovery</li>
+        <li>Cockpit – storage and mount management</li>
+        <li>Homarr – homelab dashboard</li>
       </ul>
       <p>
-        I plan to migrate this entire stack to Docker in the future once the
-        architecture is finalized.
+        The long-term plan is to migrate this entire stack into Docker once the
+        architecture and workflows are fully validated.
       </p>
     </section>
 
@@ -79,10 +78,10 @@
     <section class="card fade-up">
       <h2>Virtual Machines</h2>
       <ul>
-        <li>Ubuntu Server (general-purpose workloads)</li>
-        <li>Debian Server (Docker host)</li>
-        <li>Kali Linux (security testing)</li>
-        <li>Metasploitable (vulnerability practice)</li>
+        <li>Ubuntu Server – general workloads and testing</li>
+        <li>Debian Server – Docker host</li>
+        <li>Kali Linux – security testing and tool practice</li>
+        <li>Metasploitable – vulnerability and exploitation labs</li>
         <li>Windows Server 2025</li>
         <li>Windows 10</li>
         <li>macOS VM</li>
@@ -92,21 +91,20 @@
 
     <!-- DOCKER & REMOTE ACCESS -->
     <section class="card fade-up">
-      <h2>Docker & Remote Access</h2>
+      <h2>Docker & Secure Remote Access</h2>
       <p>
-        A dedicated Debian VM runs Docker to host infrastructure services and
-        web-facing tools.
+        A dedicated Debian VM hosts containerized infrastructure services and
+        web-facing tools using Docker.
       </p>
       <ul>
-        <li>Docker + Portainer</li>
-        <li>Nginx Proxy Manager</li>
-        <li>Cloudflare Tunnel (Zero Trust access)</li>
-        <li>Twingate (Zero Trust access)</li>
+        <li>Docker with Portainer for container management</li>
+        <li>Nginx Proxy Manager for reverse proxy and SSL management</li>
+        <li>Cloudflare Tunnel (Zero Trust service exposure)</li>
+        <li>Twingate (Zero Trust access to internal services)</li>
       </ul>
       <p>
-        Twingate is for remote access to internal VMs and services, while
-        Cloudflare Tunnel allows secure remote access to services without
-        exposing ports or relying on traditional port forwarding.
+        This setup enables secure remote access to internal resources without
+        exposing inbound ports or relying on traditional port forwarding.
       </p>
     </section>
 
@@ -114,14 +112,14 @@
     <section class="card fade-up">
       <h2>Networking & Security Practice</h2>
       <p>
-        An OPNsense VM is deployed on a separate internal network to practice
-        VLAN configuration, firewall rules, and network segmentation without
-        impacting production services.
+        An isolated OPNsense VM provides a dedicated network for practicing
+        enterprise networking and security concepts without impacting
+        production services.
       </p>
       <ul>
-        <li>VLANs & subnet segmentation</li>
-        <li>Firewall policy testing</li>
-        <li>Isolated attack / defense labs</li>
+        <li>VLAN creation and subnet segmentation</li>
+        <li>Firewall rule design and testing</li>
+        <li>Isolated attack and defense scenarios</li>
       </ul>
     </section>
 
@@ -129,10 +127,10 @@
     <section class="card fade-up">
       <h2>Why I Built It This Way</h2>
       <p>
-        This homelab prioritizes learning through real-world design choices:
-        separation of concerns, infrastructure as services, secure access,
-        and iterative improvement. It serves as both a production environment
-        and a safe testing ground for new technologies.
+        This homelab emphasizes real-world design principles such as separation
+        of concerns, layered security, secure remote access, and gradual
+        architectural evolution. It allows me to learn by building, breaking,
+        and improving systems in a controlled environment.
       </p>
     </section>
 
