@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,44 +25,88 @@
 
 <main class="container">
 
+  <!-- INTRO -->
+  <section class="card hero fade-up">
+    <h2>Projects</h2>
+    <p>
+      These projects showcase hands-on experience designing, deploying,
+      and securing real-world infrastructure in my homelab. Each project
+      focuses on solving practical problems using modern tools and
+      best practices.
+    </p>
+  </section>
+
   <!-- FEATURED PROJECTS -->
   <section class="card">
     <h2>Featured Projects</h2>
+
     <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
       <div class="project-card fade-up">
         <img src="assets/plex.png" alt="Media Server Stack" class="project-img">
-        <h3>Media Server Stack</h3>
+        <h3>Media Server Automation Platform</h3>
         <p>
-          Plex, Radarr, Sonarr, Prowlarr, and Overseerr each run in their own
-          LXC container on Proxmox, using shared ZFS storage for organized
-          and reliable media management.
+          Designed and deployed a modular media platform using multiple
+          LXC containers on Proxmox with shared ZFS storage. Each service
+          runs independently for improved reliability, security, and
+          scalability.
+        </p>
+        <p>
+          <strong>Technologies:</strong> Proxmox VE, LXC, ZFS, Plex,
+          Radarr, Sonarr, Prowlarr, Overseerr, qBittorrent
+        </p>
+        <p>
+          <strong>Focus:</strong> Service isolation, storage permissions,
+          automation, migration planning (LXC → Docker)
         </p>
       </div>
 
+      <!-- PROJECT 2 -->
       <div class="project-card fade-up">
         <img src="assets/cloudflare.png" alt="Cloudflare Tunnel" class="project-img">
-        <h3>Cloudflare Tunnel + Nginx Proxy Manager</h3>
+        <h3>Secure Remote Access with Cloudflare Zero Trust</h3>
         <p>
-          Secure remote access to all services without port forwarding,
-          using Cloudflare Zero Trust and Nginx Proxy Manager.
+          Implemented secure external access to internal services without
+          exposing ports to the public internet. Services are routed
+          through Cloudflare Tunnel and managed with Nginx Proxy Manager.
+        </p>
+        <p>
+          <strong>Technologies:</strong> Cloudflare Tunnel, Nginx Proxy
+          Manager, Docker, Portainer, DNS, SSL/TLS
+        </p>
+        <p>
+          <strong>Focus:</strong> Zero Trust networking, reverse proxying,
+          certificate management, attack surface reduction
         </p>
       </div>
 
+      <!-- PROJECT 3 -->
       <div class="project-card fade-up">
         <img src="assets/automation.png" alt="Automation Projects" class="project-img">
-        <h3>Automation Projects</h3>
+        <h3>Infrastructure Automation & Monitoring</h3>
         <p>
-          Scripts to automate backups, notifications, monitoring, and workflow
-          tasks in my homelab.
+          Developed scripts and workflows to automate routine homelab
+          tasks such as backups, service monitoring, and system
+          maintenance to improve reliability and efficiency.
+        </p>
+        <p>
+          <strong>Technologies:</strong> Bash, Python, Linux, cron,
+          Docker
+        </p>
+        <p>
+          <strong>Focus:</strong> Automation, monitoring, operational
+          efficiency, scripting
         </p>
       </div>
+
     </div>
   </section>
 
 </main>
 
 <footer>
-  <p>© 2026 Tyler George</p>
+  <p>© 2026 Tyler George | All rights reserved</p>
 </footer>
 
 <!-- Scroll animation script -->
@@ -69,7 +114,7 @@
   const faders = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if(entry.isIntersecting){
+      if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
