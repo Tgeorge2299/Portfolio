@@ -27,7 +27,6 @@
   <main class="container">
     <section class="card hero center-hero">
       <h2 class="fade-up">Hi, I’m Tyler George</h2>
-
       <p class="fade-up">
         I’m passionate about IT, cybersecurity, and building hands-on experience
         in real-world infrastructure. I enjoy self-hosting, automating workflows,
@@ -59,38 +58,48 @@
       <h2>Skills & Tools</h2>
       <div class="skills-grid">
 
-        <div class="skill fade-up">
+        <div class="skill fade-up" data-title="Linux" data-description="Proficient in Linux for server management, automation, and security tasks.">
           <img src="assets/linux.png" alt="Linux Logo">
           <span>Linux</span>
         </div>
 
-        <div class="skill fade-up">
+        <div class="skill fade-up" data-title="Proxmox / LXC" data-description="Experience deploying virtualized environments with Proxmox VE and managing LXC containers for scalable homelabs.">
           <img src="assets/proxmox.png" alt="Proxmox Logo">
           <span>Proxmox / LXC</span>
         </div>
 
-        <div class="skill fade-up">
+        <div class="skill fade-up" data-title="Cloudflare / Networking" data-description="Secure network access using Cloudflare Zero Trust, reverse proxies, and VPN alternatives.">
           <img src="assets/cloudflare.png" alt="Cloudflare Logo">
           <span>Cloudflare / Networking</span>
         </div>
 
-        <div class="skill fade-up">
+        <div class="skill fade-up" data-title="Git / GitHub" data-description="Version control and collaborative coding using Git and GitHub for project management and deployments.">
           <img src="assets/github.png" alt="GitHub Logo">
           <span>Git / GitHub</span>
         </div>
 
-        <div class="skill fade-up">
+        <div class="skill fade-up" data-title="Python / Automation" data-description="Automating workflows, scripts for backups, monitoring, and system administration using Python.">
           <img src="assets/python.png" alt="Python Logo">
           <span>Automation / Python</span>
         </div>
 
-        <div class="skill fade-up">
+        <div class="skill fade-up" data-title="Docker / Containers" data-description="Deploying containerized applications and services for isolated, scalable environments using Docker.">
           <img src="assets/docker.png" alt="Docker Logo">
           <span>Docker / Containers</span>
         </div>
 
       </div>
     </section>
+
+    <!-- MODAL -->
+    <div id="skillModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -98,20 +107,40 @@
     <p>© 2026 Tyler George | All rights reserved</p>
   </footer>
 
-  <!-- Scroll animation script -->
+  <!-- SCRIPT -->
   <script>
+    // Fade-up observer
     const faders = document.querySelectorAll('.fade-up');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting){
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-
     faders.forEach(fader => observer.observe(fader));
+
+    // Modal logic
+    const modal = document.getElementById("skillModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const closeBtn = document.querySelector(".modal .close");
+
+    const skills = document.querySelectorAll(".skill");
+    skills.forEach(skill => {
+      skill.addEventListener("click", () => {
+        modalTitle.textContent = skill.dataset.title;
+        modalDescription.textContent = skill.dataset.description;
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+    window.addEventListener("click", (e) => {
+      if(e.target === modal) modal.style.display = "none";
+    });
   </script>
 
 </body>
