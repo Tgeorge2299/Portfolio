@@ -5,39 +5,370 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Tech by Tyler</title>
   <link rel="icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-form {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-group.error input,
+    .form-group.error textarea {
+      border-color: #ef4444;
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .form-group.error .error-message {
+      display: block;
+    }
+
+    .form-message {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .form-message.success {
+      background: #10b98144;
+      color: #10b981;
+      border: 1px solid #10b981;
+      display: block;
+    }
+
+    .form-message.error {
+      background: #ef444444;
+      color: #ef4444;
+      border: 1px solid #ef4444;
+      display: block;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-primary);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details h3 {
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .contact-details p,
+    .contact-details a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .contact-details a:hover {
+      color: var(--accent-primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-btn:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <nav class="container">
     <h1 class="logo">Tech by Tyler</h1>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="homelab.html">Homelab</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li>
-      </li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main class="container">
-  <section class="card hero">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:tgeorge2299@gmail.com">tgeorge2299@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/Tgeorge2299" target="_blank">github.com/Tgeorge2299</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/tyler-george-2299/" target="_blank">linkedin.com/in/tyler-george-2299/</a></p>
+  <section class="card hero fade-up">
+    <h2>Get In Touch</h2>
+    <p>Have a question or want to work together? I'd love to hear from you!</p>
   </section>
+
+  <div class="contact-container">
+    <!-- Contact Form -->
+    <div class="fade-up">
+      <form class="contact-form" id="contactForm">
+        <div class="form-message"></div>
+        
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+          <span class="error-message">Please enter your name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error-message">Please enter a valid email</span>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input type="text" id="subject" name="subject" required>
+          <span class="error-message">Please enter a subject</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+          <span class="error-message">Please enter a message</span>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%;">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-info fade-up">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-details">
+          <h3>Email</h3>
+          <a href="mailto:tgeorge2299@gmail.com">tgeorge2299@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div class="contact-details">
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/tyler-george-2299/" target="_blank">
+            linkedin.com/in/tyler-george-2299
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">💻</div>
+        <div class="contact-details">
+          <h3>GitHub</h3>
+          <a href="https://github.com/Tgeorge2299" target="_blank">
+            github.com/Tgeorge2299
+          </a>
+        </div>
+      </div>
+
+      <div class="card" style="margin: 0; padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem;">Quick Response Time</h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">
+          I typically respond to messages within 24-48 hours. 
+          For urgent inquiries, please email me directly.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/Tgeorge2299" target="_blank" class="social-btn" title="GitHub">
+            💻
+          </a>
+          <a href="https://www.linkedin.com/in/tyler-george-2299/" target="_blank" class="social-btn" title="LinkedIn">
+            💼
+          </a>
+          <a href="mailto:tgeorge2299@gmail.com" class="social-btn" title="Email">
+            📧
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer>
-  <p>© 2026 Tyler George</p>
+  <p>© 2026 Tyler George | All rights reserved</p>
 </footer>
-  <!-- SCRIPT -->
-  <script src="main.js"></script>
 
+<script src="main.js"></script>
+<script>
+  // Enhanced form validation and submission
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    const messageDiv = form.querySelector('.form-message');
+    
+    // Clear previous errors
+    form.querySelectorAll('.form-group').forEach(group => {
+      group.classList.remove('error');
+    });
+    
+    // Validate
+    let isValid = true;
+    
+    if (!data.name.trim()) {
+      form.querySelector('#name').closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+    
+    if (!data.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      form.querySelector('#email').closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+    
+    if (!data.subject.trim()) {
+      form.querySelector('#subject').closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+    
+    if (!data.message.trim()) {
+      form.querySelector('#message').closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+    
+    if (!isValid) {
+      messageDiv.className = 'form-message error';
+      messageDiv.textContent = 'Please fill in all required fields correctly.';
+      return;
+    }
+    
+    // Simulate sending (replace with actual backend/service)
+    try {
+      // Example using FormSpree (replace with your FormSpree endpoint)
+      // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      //   method: 'POST',
+      //   body: formData,
+      //   headers: {
+      //     'Accept': 'application/json'
+      //   }
+      // });
+      
+      // Simulated success for now
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      messageDiv.className = 'form-message success';
+      messageDiv.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+      form.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
+      
+    } catch (error) {
+      messageDiv.className = 'form-message error';
+      messageDiv.textContent = 'Failed to send message. Please email me directly.';
+    }
+  });
+</script>
+  <!-- MAIN JAVASCRIPT -->
+  <script src="main.js"></script>
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech by Tyler | IT & Cybersecurity</title>
+  <title>Tech by Tyler | IT & Cybersecurity Portfolio</title>
+  <meta name="description" content="Tyler George - IT & Cybersecurity professional specializing in homelab infrastructure, automation, and network security.">
   <link rel="icon" href="assets/favicon.ico">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,28 +14,35 @@
   <header>
     <nav class="container">
       <h1 class="logo">Tech by Tyler</h1>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="homelab.html">Homelab</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <!-- Theme toggle will be added by JavaScript -->
       </ul>
     </nav>
   </header>
 
   <!-- HERO SECTION -->
   <main class="container">
-    <section class="card hero center-hero">
-      <h2 class="fade-up">Hi, I’m Tyler George</h2>
-      <p class="fade-up">
-        I’m passionate about IT, cybersecurity, and building hands-on experience
+    <section class="card hero fade-up">
+      <h2>Hi, I'm Tyler George</h2>
+      <p class="typing-text">IT Professional</p>
+      <p>
+        I'm passionate about IT, cybersecurity, and building hands-on experience
         in real-world infrastructure. I enjoy self-hosting, automating workflows,
         and exploring new technologies in my homelab.
       </p>
 
       <!-- HERO ACTION BUTTONS -->
-      <div class="hero-actions fade-up">
+      <div class="hero-actions">
         <a href="projects.html" class="btn">View My Projects</a>
         <a href="assets/TylerGeorgeResume.pdf" class="btn btn-outline" download>
           Download Resume
@@ -43,7 +51,7 @@
     </section>
 
     <!-- QUICK HIGHLIGHTS SECTION -->
-    <section class="card">
+    <section class="card fade-up">
       <h2>What I Do</h2>
       <ul>
         <li>Build and manage homelabs with Proxmox, LXC, and ZFS</li>
@@ -54,36 +62,36 @@
     </section>
 
     <!-- SKILLS / TECHNOLOGIES SECTION -->
-    <section class="card">
+    <section class="card fade-up">
       <h2>Skills & Tools</h2>
       <div class="skills-grid">
 
-        <div class="skill fade-up" data-title="Linux" data-description="Proficient in Linux for server management, automation, and security tasks.">
+        <div class="skill slide-in-left" data-title="Linux" data-description="Proficient in Linux for server management, automation, and security tasks. Experience with Ubuntu, Debian, and CentOS distributions.">
           <img src="assets/linux.png" alt="Linux Logo">
           <span>Linux</span>
         </div>
 
-        <div class="skill fade-up" data-title="Proxmox / LXC" data-description="Experience deploying virtualized environments with Proxmox VE and managing LXC containers for scalable homelabs.">
+        <div class="skill slide-in-left" data-title="Proxmox / LXC" data-description="Experience deploying virtualized environments with Proxmox VE and managing LXC containers for scalable homelabs.">
           <img src="assets/proxmox.png" alt="Proxmox Logo">
           <span>Proxmox / LXC</span>
         </div>
 
-        <div class="skill fade-up" data-title="Cloudflare / Networking" data-description="Secure network access using Cloudflare Zero Trust, reverse proxies, and VPN alternatives.">
+        <div class="skill slide-in-right" data-title="Cloudflare / Networking" data-description="Secure network access using Cloudflare Zero Trust, reverse proxies, and VPN alternatives.">
           <img src="assets/cloudflare.png" alt="Cloudflare Logo">
           <span>Cloudflare / Networking</span>
         </div>
 
-        <div class="skill fade-up" data-title="Git / GitHub" data-description="Version control and collaborative coding using Git and GitHub for project management and deployments.">
+        <div class="skill slide-in-right" data-title="Git / GitHub" data-description="Version control and collaborative coding using Git and GitHub for project management and deployments.">
           <img src="assets/github.png" alt="GitHub Logo">
           <span>Git / GitHub</span>
         </div>
 
-        <div class="skill fade-up" data-title="Python / Automation" data-description="Automating workflows, scripts for backups, monitoring, and system administration using Python.">
+        <div class="skill slide-in-left" data-title="Python / Automation" data-description="Automating workflows, scripts for backups, monitoring, and system administration using Python.">
           <img src="assets/python.png" alt="Python Logo">
           <span>Automation / Python</span>
         </div>
 
-        <div class="skill fade-up" data-title="Docker / Containers" data-description="Deploying containerized applications and services for isolated, scalable environments using Docker.">
+        <div class="skill slide-in-right" data-title="Docker / Containers" data-description="Deploying containerized applications and services for isolated, scalable environments using Docker.">
           <img src="assets/docker.png" alt="Docker Logo">
           <span>Docker / Containers</span>
         </div>
@@ -91,14 +99,16 @@
       </div>
     </section>
 
-    <!-- MODAL -->
-    <div id="skillModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3 id="modalTitle"></h3>
-        <p id="modalDescription"></p>
+    <!-- FEATURED PROJECTS PREVIEW -->
+    <section class="card fade-up">
+      <h2>Featured Projects</h2>
+      <p class="text-secondary mb-2">
+        Here are some of my recent homelab and infrastructure projects.
+      </p>
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="projects.html" class="btn">View All Projects →</a>
       </div>
-    </div>
+    </section>
 
   </main>
 
@@ -107,42 +117,8 @@
     <p>© 2026 Tyler George | All rights reserved</p>
   </footer>
 
-  <!-- SCRIPT -->
-   <script src="main.js"></script>
-  <script> 
-    // Fade-up observer
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    faders.forEach(fader => observer.observe(fader));
-
-    // Modal logic
-    const modal = document.getElementById("skillModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDescription = document.getElementById("modalDescription");
-    const closeBtn = document.querySelector(".modal .close");
-
-    const skills = document.querySelectorAll(".skill");
-    skills.forEach(skill => {
-      skill.addEventListener("click", () => {
-        modalTitle.textContent = skill.dataset.title;
-        modalDescription.textContent = skill.dataset.description;
-        modal.style.display = "block";
-      });
-    });
-
-    closeBtn.addEventListener("click", () => modal.style.display = "none");
-
-    window.addEventListener("click", (e) => {
-      if(e.target === modal) modal.style.display = "none";
-    });
-  </script>
+  <!-- MAIN JAVASCRIPT -->
+  <script src="main.js"></script>
 
 </body>
 </html>
