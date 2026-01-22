@@ -580,3 +580,394 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('✅ Portfolio initialized with modern JavaScript features!');
 });
+
+// ============================================
+// TERMINAL INTERFACE - VANILLA JS
+// Add to main.js or create terminal.js
+// ============================================
+
+class TerminalInterface {
+  constructor() {
+    this.history = [];
+    this.commandHistory = [];
+    this.historyIndex = -1;
+    this.input = '';
+    this.isOpen = false;
+    
+    this.commands = {
+      help: {
+        description: 'Show available commands',
+        execute: () => {
+          let output = '<div class="term-output-success"><strong>Available Commands:</strong></div>';
+          Object.entries(this.commands).forEach(([cmd, data]) => {
+            output += `<div class="term-cmd-list"><span class="term-cyan">${cmd}</span> - ${data.description}</div>`;
+          });
+          return output;
+        }
+      },
+      about: {
+        description: 'Display information about Tyler',
+        execute: () => `
+          <div class="term-output-info">
+            <strong>Tyler George</strong><br>
+            IT & Cybersecurity Professional<br>
+            Homelab enthusiast | Infrastructure automation<br><br>
+            Email: tgeorge2299@gmail.com
+          </div>
+        `
+      },
+      skills: {
+        description: 'List technical skills',
+        execute: () => `
+          <div class="term-output-warning">
+            <strong>Technical Skills:</strong><br>
+            • Proxmox VE & Virtualization<br>
+            • Linux System Administration<br>
+            • Docker & Container Orchestration<br>
+            • Network Security & Zero Trust<br>
+            • Python & Bash Scripting<br>
+            • ZFS Storage Management
+          </div>
+        `
+      },
+      projects: {
+        description: 'View recent projects',
+        execute: () => `
+          <div class="term-output-special">
+            <strong>Recent Projects:</strong><br>
+            <span class="term-cyan">[1]</span> Media Server Automation Platform<br>
+            <span style="margin-left: 1.5rem; color: #94a3b8;">Proxmox LXC, ZFS, Plex Stack</span><br><br>
+            <span class="term-cyan">[2]</span> Cloudflare Zero Trust Setup<br>
+            <span style="margin-left: 1.5rem; color: #94a3b8;">Secure remote access, no open ports</span><br><br>
+            <span class="term-cyan">[3]</span> Infrastructure Automation<br>
+            <span style="margin-left: 1.5rem; color: #94a3b8;">Python scripts for monitoring & backups</span><br><br>
+            <small>Type 'project [number]' for details</small>
+          </div>
+        `
+      },
+      project: {
+        description: 'View specific project details',
+        execute: (args) => {
+          const projects = {
+            '1': {
+              name: 'Media Server Automation Platform',
+              tech: ['Proxmox VE', 'LXC', 'ZFS', 'Plex', 'Radarr', 'Sonarr'],
+              description: 'Modular media platform with isolated services'
+            },
+            '2': {
+              name: 'Cloudflare Zero Trust Setup',
+              tech: ['Cloudflare Tunnel', 'Nginx', 'Docker', 'SSL/TLS'],
+              description: 'Secure remote access without port forwarding'
+            },
+            '3': {
+              name: 'Infrastructure Automation',
+              tech: ['Python', 'Bash', 'Cron', 'Monitoring'],
+              description: 'Automated backups and system monitoring'
+            }
+          };
+
+          const project = projects[args[0]];
+          if (!project) {
+            return '<div class="term-output-error">Project not found. Use \'projects\' to list all.</div>';
+          }
+
+          return `
+            <div class="term-output-success">
+              <strong>${project.name}</strong><br>
+              ${project.description}<br><br>
+              <span class="term-cyan">Technologies:</span><br>
+              ${project.tech.join(', ')}
+            </div>
+          `;
+        }
+      },
+      homelab: {
+        description: 'Display homelab setup',
+        execute: () => `
+          <div class="term-output-success">
+            <strong>🖥️  Homelab Infrastructure:</strong><br><br>
+            <span class="term-yellow">┌── Proxmox VE (Single Node)</span><br>
+            <span class="term-cyan" style="margin-left: 1rem;">├── Storage:</span><br>
+            <span style="margin-left: 2rem;">│   ├── ZFS Pool "tank" (2×1TB HDD)</span><br>
+            <span style="margin-left: 2rem;">│   └── NVMe 512GB (High I/O)</span><br>
+            <span class="term-cyan" style="margin-left: 1rem;">├── LXC Containers (7):</span><br>
+            <span style="margin-left: 2rem;">│   ├── Plex, Radarr, Sonarr</span><br>
+            <span style="margin-left: 2rem;">│   ├── Prowlarr, Overseerr</span><br>
+            <span style="margin-left: 2rem;">│   └── Cockpit, Homarr</span><br>
+            <span class="term-cyan" style="margin-left: 1rem;">└── Virtual Machines (8):</span><br>
+            <span style="margin-left: 2rem;">    ├── Docker Host (Debian)</span><br>
+            <span style="margin-left: 2rem;">    ├── Security Lab (Kali/Metasploitable)</span><br>
+            <span style="margin-left: 2rem;">    └── Windows Server, Ubuntu, macOS</span>
+          </div>
+        `
+      },
+      contact: {
+        description: 'Show contact information',
+        execute: () => `
+          <div class="term-output-info">
+            <strong>Contact Information:</strong><br>
+            📧 Email: tgeorge2299@gmail.com<br>
+            💼 LinkedIn: linkedin.com/in/tyler-george-2299<br>
+            💻 GitHub: github.com/Tgeorge2299
+          </div>
+        `
+      },
+      clear: {
+        description: 'Clear terminal screen',
+        execute: () => {
+          this.history = [];
+          this.renderHistory();
+          return null;
+        }
+      },
+      whoami: {
+        description: 'Display current user',
+        execute: () => '<div class="term-output-success">guest@tylergeorge.tech</div>'
+      },
+      date: {
+        description: 'Show current date and time',
+        execute: () => `<div class="term-output-info">${new Date().toString()}</div>`
+      },
+      echo: {
+        description: 'Print text to terminal',
+        execute: (args) => `<div class="term-output-normal">${args.join(' ')}</div>`
+      },
+      neofetch: {
+        description: 'Display system info',
+        execute: () => `
+          <div class="term-output-special">
+            <pre style="line-height: 1.4; color: #60a5fa;">
+     ___           guest@tylergeorge.tech
+    (.. |          -----------------------
+    (&lt;&gt; |          OS: Portfolio v2.0
+   / __  \\         Host: techbytyler.com
+  ( /  \\ /|        Kernel: Modern JavaScript
+ _/\\ __)/_)        Uptime: Always Online
+ \\/-____\\/         Shell: JavaScript Terminal
+                   Theme: Dark Mode
+                   Skills: Linux, Docker, Proxmox
+                   Projects: 15+ homelab setups
+            </pre>
+          </div>
+        `
+      },
+      ls: {
+        description: 'List pages',
+        execute: () => `
+          <div class="term-output-info">
+            index.html<br>
+            projects.html<br>
+            homelab.html<br>
+            about.html<br>
+            contact.html
+          </div>
+        `
+      },
+      goto: {
+        description: 'Navigate to page (home, projects, homelab, etc.)',
+        execute: (args) => {
+          const pages = {
+            home: 'index.html',
+            projects: 'projects.html',
+            homelab: 'homelab.html',
+            about: 'about.html',
+            contact: 'contact.html'
+          };
+          
+          const page = pages[args[0]?.toLowerCase()];
+          if (page) {
+            setTimeout(() => window.location.href = page, 500);
+            return `<div class="term-output-success">Navigating to ${args[0]}...</div>`;
+          }
+          return `<div class="term-output-error">Page not found. Try: ${Object.keys(pages).join(', ')}</div>`;
+        }
+      },
+      exit: {
+        description: 'Close terminal',
+        execute: () => {
+          this.close();
+          return '<div class="term-output-success">Goodbye!</div>';
+        }
+      }
+    };
+  }
+
+  init() {
+    this.createTerminal();
+    this.addTriggerButton();
+    
+    // Show welcome message
+    this.addToHistory(null, `
+      <div class="term-output-success">
+        <strong style="font-size: 1.2em;">Welcome to Tyler's Interactive Terminal</strong><br><br>
+        Type '<span class="term-cyan">help</span>' to see available commands<br>
+        Type '<span class="term-cyan">about</span>' to learn more about me<br><br>
+        <small style="color: #94a3b8;">Pro tip: Use ↑ and ↓ arrows to navigate command history</small>
+      </div>
+    `);
+  }
+
+  createTerminal() {
+    const terminal = document.createElement('div');
+    terminal.id = 'terminal-overlay';
+    terminal.className = 'terminal-overlay';
+    terminal.innerHTML = `
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="term-btn term-btn-close"></span>
+            <span class="term-btn term-btn-minimize"></span>
+            <span class="term-btn term-btn-maximize"></span>
+          </div>
+          <div class="terminal-title">guest@tylergeorge.tech ~ /portfolio</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div id="terminal-history"></div>
+          <div class="terminal-input-line">
+            <span class="term-prompt">➜</span>
+            <span class="term-dir">~</span>
+            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(terminal);
+
+    // Event listeners
+    terminal.querySelector('.term-btn-close').addEventListener('click', () => this.close());
+    terminal.addEventListener('click', (e) => {
+      if (e.target.id === 'terminal-overlay') this.close();
+    });
+
+    const input = document.getElementById('terminal-input');
+    input.addEventListener('keydown', (e) => this.handleKeyDown(e));
+
+    // Focus input when clicking terminal body
+    document.getElementById('terminal-body').addEventListener('click', () => input.focus());
+  }
+
+  addTriggerButton() {
+    // Add terminal button to navigation
+    const nav = document.querySelector('.nav-links');
+    if (!nav) return;
+
+    const li = document.createElement('li');
+    li.innerHTML = '<a href="#" id="terminal-trigger" style="cursor: pointer;">Terminal</a>';
+    nav.appendChild(li);
+
+    document.getElementById('terminal-trigger').addEventListener('click', (e) => {
+      e.preventDefault();
+      this.open();
+    });
+  }
+
+  handleKeyDown(e) {
+    const input = document.getElementById('terminal-input');
+
+    if (e.key === 'Enter') {
+      this.processCommand(input.value);
+      input.value = '';
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (this.commandHistory.length > 0) {
+        const newIndex = this.historyIndex < this.commandHistory.length - 1 
+          ? this.historyIndex + 1 
+          : this.historyIndex;
+        this.historyIndex = newIndex;
+        input.value = this.commandHistory[this.commandHistory.length - 1 - newIndex];
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (this.historyIndex > 0) {
+        const newIndex = this.historyIndex - 1;
+        this.historyIndex = newIndex;
+        input.value = this.commandHistory[this.commandHistory.length - 1 - newIndex];
+      } else if (this.historyIndex === 0) {
+        this.historyIndex = -1;
+        input.value = '';
+      }
+    } else if (e.key === 'Escape') {
+      this.close();
+    }
+  }
+
+  processCommand(cmdStr) {
+    const trimmed = cmdStr.trim();
+    if (!trimmed) return;
+
+    const parts = trimmed.split(' ');
+    const command = parts[0].toLowerCase();
+    const args = parts.slice(1);
+
+    this.commandHistory.push(trimmed);
+    this.historyIndex = -1;
+
+    let output;
+    if (this.commands[command]) {
+      output = this.commands[command].execute(args);
+    } else {
+      output = `<div class="term-output-error">Command not found: ${command}. Type 'help' for available commands.</div>`;
+    }
+
+    this.addToHistory(trimmed, output);
+  }
+
+  addToHistory(input, output) {
+    this.history.push({ input, output });
+    this.renderHistory();
+  }
+
+  renderHistory() {
+    const historyEl = document.getElementById('terminal-history');
+    if (!historyEl) return;
+
+    historyEl.innerHTML = this.history.map(entry => {
+      let html = '';
+      if (entry.input) {
+        html += `
+          <div class="terminal-history-entry">
+            <span class="term-prompt">➜</span>
+            <span class="term-dir">~</span>
+            <span class="term-input-text">${entry.input}</span>
+          </div>
+        `;
+      }
+      if (entry.output) {
+        html += `<div class="terminal-output">${entry.output}</div>`;
+      }
+      return html;
+    }).join('');
+
+    // Scroll to bottom
+    const body = document.getElementById('terminal-body');
+    setTimeout(() => body.scrollTop = body.scrollHeight, 0);
+  }
+
+  open() {
+    const overlay = document.getElementById('terminal-overlay');
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+      overlay.classList.add('active');
+      document.getElementById('terminal-input').focus();
+    }, 10);
+    this.isOpen = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  close() {
+    const overlay = document.getElementById('terminal-overlay');
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300);
+    this.isOpen = false;
+  }
+}
+
+// Initialize terminal when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  window.terminal = new TerminalInterface();
+  window.terminal.init();
+});
